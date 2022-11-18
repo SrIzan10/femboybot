@@ -6,8 +6,6 @@ COPY package.json ./
 
 RUN npm i
 
-EXPOSE 7272
-
 COPY . .
 
 RUN npm run build
