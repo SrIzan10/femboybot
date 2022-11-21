@@ -28,6 +28,7 @@ export default commandModule({
 					await save.save();
 					await ctx.editReply({
 						content: `El mensaje de ${author} con ID \`${message}\` ha sido guardado correctamente en la base de datos!`,
+						allowedMentions: { repliedUser: false }
 					});
 				}
 			}
