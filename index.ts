@@ -1,6 +1,7 @@
 import { Client, GatewayIntentBits } from 'discord.js';
-import { Sern } from '@sern/handler';
+import { Sern, SernEmitter } from '@sern/handler';
 import 'dotenv/config'
+import mongoose from 'mongoose';
 
 const client = new Client({
 	intents: [
@@ -9,11 +10,14 @@ const client = new Client({
 		GatewayIntentBits.GuildMessages,
 	],
 });
-//View docs for all options
+
 Sern.init({
 	client,
 	commands: './dist/commands/',
-	// events: './dist/events/',
+	events: './dist/events/',
+	sernEmitter: new SernEmitter()
 });
 
-client.login(process.env.TOKEN);
+mongoose.connect(process.env.MONGODB!)
+
+client.login(process.env.TOKEN)

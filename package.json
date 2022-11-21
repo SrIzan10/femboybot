@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon dist/index.js",
+    "dev": "tsc-watch --onSuccess \"node dist/index.js\"",
     "build": "tsc --build"
   },
   "type": "module",
@@ -19,7 +19,8 @@
     "@sern/handler": "^1.0.0",
     "axios": "^0.27.2",
     "discord.js": "^14.2.0",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "mongoose": "^6.7.2"
   },
   "devDependencies": {
     "@types/node": "^17.0.25",
