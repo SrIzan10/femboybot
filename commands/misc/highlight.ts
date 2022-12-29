@@ -1,5 +1,5 @@
 import { commandModule, CommandType } from '@sern/handler';
-import { publish } from '../../src/plugins/publish.js';
+import { publish } from '../../plugins/publish.js';
 import db from "../../schemas/highlights.js";
 import { time } from 'discord.js';
 

@@ -1,7 +1,7 @@
 import { commandModule, CommandType } from '@sern/handler';
 import axios from 'axios';
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle, ComponentType } from 'discord.js';
-import { publish } from '../../src/plugins/publish.js';
+import { publish } from '../../plugins/publish.js';
 
 export default commandModule({
 	type: CommandType.Slash,

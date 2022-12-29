@@ -1,8 +1,9 @@
 import { EventType, eventModule } from "@sern/handler";
+import { Client } from "discord.js";
 
 export default eventModule({
 	type: EventType.Discord,
-	execute () {
-        console.log('el bot c ha ensendio')
+	execute: async (client: Client) => {
+        console.log('el bot c ha ensendio');
 	},
 });

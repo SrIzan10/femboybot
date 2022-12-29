@@ -1,10 +1,10 @@
 import { commandModule, CommandType } from "@sern/handler";
-import { publish } from "../../src/plugins/publish.js";
+import { publish } from "../../plugins/publish.js";
 import db from "../../schemas/highlights.js";
 import { Model } from "mongoose";
 
 export default commandModule({
-	type: CommandType.MenuMsg,
+	type: CommandType.CtxMsg,
 	plugins: [publish()],
 	// alias : [],
 	execute: async (ctx) => {
