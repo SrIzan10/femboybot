@@ -3,7 +3,7 @@ import { Client } from "discord.js";
 
 export default eventModule({
 	type: EventType.Discord,
-	execute: async (client: Client) => {
+	execute: async () => {
         console.log('el bot c ha ensendio');
 	},
 });
