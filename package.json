@@ -20,7 +20,8 @@
     "axios": "^0.27.2",
     "discord.js": "^14.2.0",
     "dotenv": "^16.0.3",
-    "mongoose": "^6.7.2"
+    "mongoose": "^6.7.2",
+    "tiktok-scraper-ts": "^1.4.1"
   },
   "devDependencies": {
     "@types/node": "^17.0.25",
