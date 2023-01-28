@@ -22,7 +22,7 @@ export default eventModule({
 
 			const scrap = await tiktok.fetchVideo(link) as tiktok.Video
 
-			const shorten = await axios.get(`https://cutt.ly/api/api.php?key=${process.env.CUTTLY}&short=${scrap.downloadURL}`).then(res => res.data)
+			const shorten = await axios.get(`https://cutt.ly/api/api.php?key=${process.env.CUTTLY}&short=${scrap.playURL}`).then(res => res.data)
 
 			await message.reply({
 				content: `Ok, tengo el enlace al vídeo: ${shorten.url.shortLink}`
