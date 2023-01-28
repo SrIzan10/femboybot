@@ -1,6 +1,8 @@
-FROM node:lts-alpine
+FROM node:lts
 
 WORKDIR /app
+
+RUN apt update && apt install chromium-browser -y
 
 COPY package.json ./
 
