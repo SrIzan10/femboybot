@@ -1,6 +1,5 @@
 import { EventType, eventModule } from "@sern/handler";
-import { Client, Message } from "discord.js";
-import tiktok from 'tiktok-scraper-ts'
+import { ActionRowBuilder, AttachmentBuilder, ButtonBuilder, Client, Message } from "discord.js";
 import axios from 'axios'
 
 export default eventModule({
@@ -20,12 +19,14 @@ export default eventModule({
 				link = message.content.substring(index, endIndex);
 			}
 
-			const scrap = await tiktok.fetchVideo(link) as tiktok.Video
-
-			const shorten = await axios.get(`https://cutt.ly/api/api.php?key=${process.env.CUTTLY}&short=${scrap.playURL}`).then(res => res.data)
+			const scrap = await axios.get(`https://www.tikwm.com/api/?url=${link}`).then(res => res.data)
+			const shorten = await axios.get(`http://chilp.it/api.php?url=${scrap.data.play}`).then(res => res.data)
+			const audio = await axios.get(scrap.data.music, { responseType: 'arraybuffer' }).then(res => res.data)
+			const audioAttachment = new AttachmentBuilder(audio, { name: 'audio.mp3' })
 
 			await message.reply({
-				content: `Ok, tengo el enlace al vídeo: ${shorten.url.shortLink}`
+				content: `Vídeo: ${shorten}`,
+				files: [audioAttachment]
 			})
 		} catch {
 			message.react('❌')

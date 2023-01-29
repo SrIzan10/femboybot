@@ -1,10 +1,6 @@
-FROM node:lts
+FROM node:lts-alpine
 
 WORKDIR /app
-
-RUN apt update && apt install chromium -y
-
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
 COPY package.json ./
 
