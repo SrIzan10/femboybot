@@ -24,6 +24,7 @@ export const useContainer = Sern.makeDependencies<MyDependencies>({
 Sern.init({
 	commands: './dist/commands/',
 	events: './dist/events/',
+	defaultPrefix: 'fmb!',
 	containerConfig: {
 		get: useContainer
 	}
