@@ -26,6 +26,7 @@ export default commandModule({
 		const nick = args[1].getString('nick', true)
 		const oldNick = user.nickname || user.user.username
 		if (user.user.bot) return await ctx.reply({ content: 'No puedes cambiarle el nick a un bot...', ephemeral: true })
+		if (user.user.id === '879036364698583130') return await ctx.reply({ content: 'no', ephemeral: true })
 
 		await user.setNickname(nick)
 		await ctx.reply({ content: `El nickname de ${user} ha sido cambiado por ${ctx.user}\nAntiguo nickname: ${oldNick}\nNuevo nickname: ${nick}` })
