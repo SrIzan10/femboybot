@@ -22,10 +22,12 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v3
 
-      - name: Log in to Sr Izan's container registry
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Docker Hub
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
         with:
-          registry: containers.srizan.dev
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
@@ -33,7 +35,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
-          images: containers.srizan.dev/femboy
+          images: srizan10/femboybot
           tags: latest
 
       - name: Build and push Docker image
@@ -50,5 +52,5 @@ jobs:
           AUTH_HEADER: ${{ secrets.WHSERVER_TOKEN }}
         run: |
           curl -X POST \
-            -H "Authorization: Bearer $AUTH_HEADER" \
+            -H "Authorization: $AUTH_HEADER" \
             https://webhooks.srizan.dev/hooks/femboy
